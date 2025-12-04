@@ -31,15 +31,12 @@ export const getRectangleString = (width, height) => {
     let result = '';
     
     for (let i = 0; i < height; i++) {
-        // Если это первая или последняя строка - рисуем полную линию
         if (i === 0 || i === height - 1) {
             result += topBottom;
         } else {
-            // Иначе рисуем границы и пробелы внутри
             result += middle;
         }
         
-        // Добавляем перенос строки, если это не самая последняя строка прямоугольника
         if (i < height - 1) {
             result += '\n';
         }
