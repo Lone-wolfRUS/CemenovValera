@@ -1,60 +1,49 @@
 // Задача 1
-
-function concatenateStrings(str1, str2) {
+export const concatenateStrings = (str1, str2) => {
     return (str1 + str2).replace(/ /g, '');
-    console.log(result); 
-    return result;
 }
 
 // Задача 2
-
-function getStringLength(str) {
+export const getStringLength = (str) => {
     return str.length;
-    console.log(length); 
-    return length;
 }
 
 // Задача 3
-
-function getStringFromTemplate(firstName, lastName) {
-    const result = `Hello, ${firstName} ${lastName}!`;
-    console.log(result); 
-    return result;
+export const getStringFromTemplate = (firstName, lastName) => {
+    return `Hello, ${firstName} ${lastName}!`;
 }
 
-// Пример использования:
-getStringFromTemplate("кто", "то");
-
 // Задача 4
-
-function getChar(str, index) {
+export const getChar = (str, index) => {
     return str[index - 1];
-  console.log(`Символ по индексу ${index} (позиция ${index}):`, char);
-    return char;
 }
 
 // Задача 5
-
-function removeFirstOccurrences(str, subStr) {
-    const result = str.replace(subStr, '');
-    console.log(${subStr} ${str}, result); 
-    return result;
+export const removeFirstOccurrences = (str, subStr) => {
+    return str.replace(subStr, '');
 }
-
-removeFirstOccurrences("vladik", "la");
 
 // Задача 6
-
-function getRectangleString(width, height) {
-    const line = '*'.repeat(width);
-    const result = (line + '\n').repeat(height).trim();
-
-    console.log(width);
-    console.log(height);
-    console.log( + result); 
-
+export const getRectangleString = (width, height) => {
+    const topBottom = '*'.repeat(width);
+    const middle = '*' + ' '.repeat(width - 2) + '*';
+    
+    let result = '';
+    
+    for (let i = 0; i < height; i++) {
+        // Если это первая или последняя строка - рисуем полную линию
+        if (i === 0 || i === height - 1) {
+            result += topBottom;
+        } else {
+            // Иначе рисуем границы и пробелы внутри
+            result += middle;
+        }
+        
+        // Добавляем перенос строки, если это не самая последняя строка прямоугольника
+        if (i < height - 1) {
+            result += '\n';
+        }
+    }
+    
     return result;
 }
-
-// Пример использования:
-getRectangleString(25, 37);
